@@ -72,20 +72,19 @@ export function createFloatingActions(initOptions?: ComputeConfig): [ReferenceAc
                 autoUpdateDestroy = undefined
             }
         }
-        const initAutoUpdate = ({autoUpdate} = options || {}):typeof autoUpdateDestroy => {
+        const initAutoUpdate = ({autoUpdate} = options || {}):void => {
             destroyAutoUpdate()
             if(autoUpdate !== false) {
                 tick().then(() => {
-                    return _autoUpdate(referenceElement, floatingElement, () => updatePosition(options), (autoUpdate === true ? {} : autoUpdate));
+                    autoUpdateDestroy = _autoUpdate(referenceElement, floatingElement, () => updatePosition(options), (autoUpdate === true ? {} : autoUpdate));
                 })
             }
-            return
         }
-        autoUpdateDestroy = initAutoUpdate()
+        initAutoUpdate()
         return {
             update(contentOptions:Parameters<typeof contentAction>[1]) {
                 updatePosition(contentOptions)
-                autoUpdateDestroy = initAutoUpdate(contentOptions)
+                initAutoUpdate(contentOptions)
             },
             destroy() {
                 destroyAutoUpdate()
