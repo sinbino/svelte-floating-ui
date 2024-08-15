@@ -1,12 +1,12 @@
 {
-	"name": "svelte-floating-ui",
+	"name": "@sinbino/svelte-floating-ui",
 	"description": "Svelte actions for working with floating ui",
-	"version": "1.5.9",
+	"version": "1.5.9-patch1",
 	"license": "MIT",
 	"main": "./index.js",
 	"types": "./index.d.ts",
 	"svelte": "./index.js",
-	"repository": "https://github.com/fedorovvvv/svelte-floating-ui",
+	"repository": "https://github.com/sinbino/svelte-floating-ui",
 	"author": "Nikita Fedorov <nikitafedorov7@yandex.ru>",
 	"keywords": [
 		"svelte",
